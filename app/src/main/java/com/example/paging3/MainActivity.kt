@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         recyclerView = findViewById(R.id.recyclerView)
-        adapter = BeerPagingAdapter()
-        beerViewModel = ViewModelProvider(this).get(BeerViewModel::class.java)
+        adapter = BeerPagingAdapter(this)
+        beerViewModel = ViewModelProvider(this)[BeerViewModel::class.java]
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
