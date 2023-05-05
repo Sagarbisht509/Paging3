@@ -9,7 +9,7 @@ class BeerPagingSource(private val beerApi: BeerApi) : PagingSource<Int, Beer>()
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Beer> {
         return try {
             val position = params.key ?: 1
-            val response = beerApi.getBeers(position)
+            val response = beerApi.getBeers(position, params.loadSize)
 
             LoadResult.Page(
                 data = response,

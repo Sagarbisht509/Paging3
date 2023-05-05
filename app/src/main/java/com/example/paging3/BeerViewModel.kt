@@ -8,8 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class BeerViewModel @Inject constructor(val beerRepo: BeerRepo) : ViewModel() {
+class BeerViewModel @Inject constructor(beerRepo: BeerRepo) : ViewModel() {
 
     var list = beerRepo.getBeers().cachedIn(viewModelScope)
-
 }
